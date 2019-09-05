@@ -7,10 +7,10 @@ function funRecalcRunes() {
 	gel('textOutput').value = "";
 	var asOut = [];
 	for (var iCtr = 0; iCtr < oSpells.length; iCtr++) {
-		gel('textOutput').value = gel('textOutput').value + oRunes[oSpells[iCtr][0]] + " " + oRunes[oSpells[iCtr][1]] + " " + oRunes[oSpells[iCtr][2]] + "\n";
-		if (oRunes[oSpells[iCtr][0]] == true && oRunes[oSpells[iCtr][1]] == true && oRunes[oSpells[iCtr][2]] == true) {
-		  asOut.push(oSpells[iCtr][0] + " " + oSpells[iCtr][1] + " " + oSpells[iCtr][2] + " - " + oSpells[iCtr][3]);
-		}
+		if (oRunes[oSpells[iCtr][0]] == false) {continue;}
+		if (oRunes[oSpells[iCtr][1]] == false) {continue;}
+		if (oRunes[oSpells[iCtr][2]] == false) {continue;}
+		asOut.push(oSpells[iCtr][0] + " " + oSpells[iCtr][1] + " " + oSpells[iCtr][2] + " - " + oSpells[iCtr][3]);
 	}
 	gel('textOutput').value = asOut.join("\n");
 }
