@@ -7,14 +7,15 @@ td img {
 	width:  45px;
 }
 
-td img.big {height: 150px;}
+td img.tall {height: 150px;}
+td img.wide {width: 200px;}
 
 td.selected {
-	border: 2px red solid;
+	border: 5px red solid;
 }
 
 td.unselected {
-	border: 2px black solid;
+	border: 5px black solid;
 }
 </style>
 <script src="DC.js"></script>
@@ -22,35 +23,29 @@ td.unselected {
 <body>
 <table>
 <tr>
-<td id="tdRuneS" class="unselected" onclick="funSelectRune('S')"><img src="img/DC-S.png" /></td>
-<td id="tdRuneT" class="unselected" onclick="funSelectRune('T')"><img src="img/DC-T.png" /></td>
-<td id="tdRuneD" class="unselected" onclick="funSelectRune('D')"><img src="img/DC-D.png" /></td>
-<td id="tdRuneE" class="unselected" onclick="funSelectRune('E')"><img src="img/DC-E.png" /></td>
+<td colspan=4 id="tdResetRoom" class="unselected" onclick="funClearRoom()" ><img class="wide" src="img/DC-Clear-Wide.png" /></td>
 </tr>
 <tr>
 <td id="tdRuneA" class="unselected" onclick="funSelectRune('A')"><img src="img/DC-A.png" /></td>
 <td id="tdRuneB" class="unselected" onclick="funSelectRune('B')"><img src="img/DC-B.png" /></td>
 <td id="tdRuneC" class="unselected" onclick="funSelectRune('C')"><img src="img/DC-C.png" /></td>
 <td id="tdRuneF" class="unselected" onclick="funSelectRune('F')"><img src="img/DC-F.png" /></td>
-<td rowspan=3 id="tdResetRoom" class="unselected" onclick="funClearRoom()" ><img class="big" src="img/DC-Clear-Big.png" /></td>
+<td id="tdRuneG" class="unselected" onclick="funSelectRune('G')"><img src="img/DC-G.png" /></td>
 </tr>
 <tr>
-<td id="tdRuneG" class="unselected" onclick="funSelectRune('G')"><img src="img/DC-G.png" /></td>
+<td id="tdRuneL" class="unselected" onclick="funSelectRune('L')"><img src="img/DC-L.png" /></td>
+<td id="tdRuneO" class="unselected" onclick="funSelectRune('O')"><img src="img/DC-O.png" /></td>
 <td id="tdRuneH" class="unselected" onclick="funSelectRune('H')"><img src="img/DC-H.png" /></td>
 <td id="tdRuneI" class="unselected" onclick="funSelectRune('I')"><img src="img/DC-I.png" /></td>
 <td id="tdRuneK" class="unselected" onclick="funSelectRune('K')"><img src="img/DC-K.png" /></td>
 </tr>
 <tr>
-<td id="tdRuneL" class="unselected" onclick="funSelectRune('L')"><img src="img/DC-L.png" /></td>
-<td id="tdRuneO" class="unselected" onclick="funSelectRune('O')"><img src="img/DC-O.png" /></td>
+<td id="tdRuneP" class="unselected" onclick="funSelectRune('P')"><img src="img/DC-P.png" /></td>
+<td id="tdRuneS" class="unselected" onclick="funSelectRune('S')"><img src="img/DC-S.png" /></td>
+<td id="tdRuneT" class="unselected" onclick="funSelectRune('T')"><img src="img/DC-T.png" /></td>
 <td id="tdRuneW" class="unselected" onclick="funSelectRune('W')"><img src="img/DC-W.png" /></td>
 </tr>
 </table>
-<table>
-<tr>
-</tr>
-</table>
-
 <div id="output">
 <textarea id="textOutput" type="textarea" style="width:275px;height:300px;"></textarea>
 </div>
