@@ -1,6 +1,7 @@
 
 var oRunes;
 var oSpells;
+funInitialize();
 
 function funRecalcRunes() {
 	gel('textOutput').value = "";
@@ -49,12 +50,8 @@ function funClearRoom() {
 
 function funPrintDebug1() {alert(oRunes);}
 function funPrintDebug2() {alert(oSpells);}
-function funInitialize1() {
-	//window.oRunes = {};
-	//window.oSpells = [];
-	funInitialize2();
-}
-function funInitialize2() {
+
+function funInitialize() {
 	oRunes = {
 		"A": false,
 		"B": false,
