@@ -36,14 +36,15 @@ function funClearRoom() {
 	funDisableRune("A");
 	funDisableRune("B");
 	funDisableRune("C");
-	funDisableRune("D");
 	funDisableRune("F");
 	funDisableRune("G");
+
 	funDisableRune("H");
 	funDisableRune("I");
 	funDisableRune("K");
 	funDisableRune("L");
 	funDisableRune("O");
+
 	funDisableRune("P");
 	funDisableRune("S");
 	funDisableRune("T");
