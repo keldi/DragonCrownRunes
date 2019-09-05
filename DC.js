@@ -9,7 +9,7 @@ function funRecalcRunes() {
 	for (var iCtr = 0; iCtr < oSpells.length; iCtr++) {
 		if (oRunes[oSpells[iCtr][0]] == false) {continue;}
 		if (oRunes[oSpells[iCtr][1]] == false) {continue;}
-		asOut.push(oSpells[iCtr][3]);
+		asOut.push(oSpells[iCtr][2]);
 	}
 	gel('textOutput').value = asOut.join("\n");
 }
