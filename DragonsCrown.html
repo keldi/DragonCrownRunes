@@ -1,0 +1,150 @@
+<html>
+<style>
+td img {
+	height: 45px;
+	width:  45px;
+}
+
+td img.big {height: 150px;}
+
+td.selected {
+	border: 2px red solid;
+}
+
+td.unselected {
+	border: 2px black solid;
+}
+</style>
+<body>
+<table>
+<tr>
+<td id="tdRuneS" class="unselected" onclick="funSelectRune('S')"><img src="img/DC-S.png" /></td>
+<td id="tdRuneT" class="unselected" onclick="funSelectRune('T')"><img src="img/DC-T.png" /></td>
+<td id="tdRuneD" class="unselected" onclick="funSelectRune('D')"><img src="img/DC-D.png" /></td>
+<td id="tdRuneE" class="unselected" onclick="funSelectRune('E')"><img src="img/DC-E.png" /></td>
+</tr>
+<tr>
+<td id="tdRuneA" class="unselected" onclick="funSelectRune('A')"><img src="img/DC-A.png" /></td>
+<td id="tdRuneB" class="unselected" onclick="funSelectRune('B')"><img src="img/DC-B.png" /></td>
+<td id="tdRuneC" class="unselected" onclick="funSelectRune('C')"><img src="img/DC-C.png" /></td>
+<td id="tdRuneF" class="unselected" onclick="funSelectRune('F')"><img src="img/DC-F.png" /></td>
+<td rowspan=3 id="tdResetRoom" class="unselected" onclick="funClearRoom()" ><img class="big" src="img/DC-Clear-Big.png" /></td>
+</tr>
+<tr>
+<td id="tdRuneG" class="unselected" onclick="funSelectRune('G')"><img src="img/DC-G.png" /></td>
+<td id="tdRuneH" class="unselected" onclick="funSelectRune('H')"><img src="img/DC-H.png" /></td>
+<td id="tdRuneI" class="unselected" onclick="funSelectRune('I')"><img src="img/DC-I.png" /></td>
+<td id="tdRuneK" class="unselected" onclick="funSelectRune('K')"><img src="img/DC-K.png" /></td>
+</tr>
+<tr>
+<td id="tdRuneL" class="unselected" onclick="funSelectRune('L')"><img src="img/DC-L.png" /></td>
+<td id="tdRuneO" class="unselected" onclick="funSelectRune('O')"><img src="img/DC-O.png" /></td>
+<td id="tdRuneW" class="unselected" onclick="funSelectRune('W')"><img src="img/DC-W.png" /></td>
+</tr>
+</table>
+<table>
+<tr>
+</tr>
+</table>
+
+<div id="output">
+<textarea id="textOutput" type="textarea" style="width:275px;height:300px;"></textarea>
+</div>
+<button onclick="funPrintDebug1();">DebugRunes</button>
+<button onclick="funPrintDebug2();">DebugSpells</button>
+</body>
+</html>
+
+
+<script>
+var oRunes = {
+	"A": false,
+	"B": false,
+	"C": false,
+	"F": false,
+	"G": false,
+	"H": false,
+	"I": false,
+	"K": false,
+	"L": false,
+	"O": false,
+	"W": false,
+	"S": false,
+	"T": false,
+	"D": false,
+	"E": false
+};
+
+var oSpells = [];
+oSpells.push(["L", "F", "S", "Life From Stone"]);
+oSpells.push(["S", "F", "C", "Solomon's Flying Carpet"]);
+oSpells.push(["T", "S", "K", "The Skeleton Key"]);
+oSpells.push(["D", "B", "G", "Dead Be Gone"]);
+oSpells.push(["T", "H", "F", "Treasure Hunter's Friend"]);
+oSpells.push(["D", "S", "B", "Double Score Bonus"]);
+oSpells.push(["P", "A", "D", "Potency and Durability"]);
+oSpells.push(["T", "P", "I", "The Phoenix Incantation"]);
+oSpells.push(["S", "O", "D", "Sigil Of Death"]);
+oSpells.push(["T", "E", "B", "Tri Elemental Blast"]);
+oSpells.push(["E", "C", "G", "Enchanted Coin Geyser"]);
+oSpells.push(["E", "I", "S", "Extra Item Stock"]);
+//oSpells.push(["T", "T", "F", "The True Fist"]);
+oSpells.push(["C", "S", "W", "Call Sylphide's Wind"]);
+//oSpells.push(["S", "B", "S", "Strength Beyond Strength"]);
+oSpells.push(["P", "T", "F", "Petrify The Flesh"]);
+oSpells.push(["O", "T", "S", "Open the Sesame"]);
+oSpells.push(["D", "I", "E", "D I E"]);
+oSpells.push(["S", "O", "L", "Salve of Life"]);
+oSpells.push(["G", "W", "S", "Generate Weapon Stash"]);
+
+
+function funRecalcRunes() {
+	gel('textOutput').value = "";
+	var asOut = [];
+	for (var iCtr = 0; iCtr < oSpells.length; iCtr++) {
+		gel('textOutput').value = gel('textOutput').value + oRunes[oSpells[iCtr][0]] + " " + oRunes[oSpells[iCtr][1]] + " " + oRunes[oSpells[iCtr][2]] + "\n";
+		if (oRunes[oSpells[iCtr][0]] == true && oRunes[oSpells[iCtr][1]] == true && oRunes[oSpells[iCtr][2]] == true) {
+		  asOut.push(oSpells[iCtr][0] + " " + oSpells[iCtr][1] + " " + oSpells[iCtr][2] + " - " + oSpells[iCtr][3]);
+		}
+	}
+	gel('textOutput').value = asOut.join("\n");
+}
+
+function funSelectRune(vsRune) {
+	if (oRunes[vsRune] == false) {oRunes[vsRune] = true;} else {oRunes[vsRune] = false;}
+	funFormatRune(vsRune);
+	funRecalcRunes();
+}
+
+function funDisableRune(vsRune) {
+	oRunes[vsRune] = false;
+	funFormatRune(vsRune);
+	return;
+}
+
+function funFormatRune(vsRune) {
+	if (oRunes[vsRune] == false) {gel('tdRune' + vsRune).className = "unselected";}
+	else if (oRunes[vsRune] == true) {gel('tdRune' + vsRune).className = "selected";}
+	return;
+}
+
+function funClearRoom() {
+	funDisableRune("A");
+	funDisableRune("B");
+	funDisableRune("C");
+	funDisableRune("F");
+	funDisableRune("G");
+	funDisableRune("H");
+	funDisableRune("I");
+	funDisableRune("K");
+	funDisableRune("L");
+	funDisableRune("O");
+	funDisableRune("W");
+	funRecalcRunes();
+}
+
+function funPrintDebug1() {alert(oRunes);}
+function funPrintDebug2() {alert(oSpells);}
+
+function gel(vsId) {return document.getElementById(vsId);}
+</script>
