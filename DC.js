@@ -4,7 +4,6 @@ var oSpells;
 funInitialize();
 
 function funRecalcRunes() {
-	return;
 	gel('textOutput').value = "";
 	var asOut = [];
 	for (var iCtr = 0; iCtr < oSpells.length; iCtr++) {
