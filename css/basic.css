@@ -1,0 +1,33 @@
+div.divMain {
+}
+
+table {
+}
+
+tr {
+}
+
+td {
+}
+
+td img {
+	height: 45px;
+	width:  45px;
+}
+
+td img.wide {display:block;margin-left:auto;margin-right:auto;height:45px;}
+
+td.selected {
+	border: 5px red solid;
+	margin: 0px;
+}
+
+td.unselected {
+	border: 5px black solid;
+	margin: 0px;
+}
+
+textarea {
+	width:100%;
+	height:100px;
+}

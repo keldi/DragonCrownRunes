@@ -1,0 +1,36 @@
+div.divMain {
+	max-width:100vw;
+	height:100vh;
+	overflow:visible;
+}
+
+table {
+}
+
+tr {
+}
+
+td {
+}
+
+td img {
+  width:10vh;
+  height:10vh;
+}
+
+td img.wide {display:block;margin-left:auto;margin-right:auto;height:10vh;}
+
+td.selected {
+	border: 5px red solid;
+	margin: 0px;
+}
+
+td.unselected {
+	border: 5px black solid;
+	margin: 0px;
+}
+
+textarea {
+	width:100%;
+	height:15vh;
+}
